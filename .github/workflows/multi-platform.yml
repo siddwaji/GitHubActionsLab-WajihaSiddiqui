@@ -1,0 +1,75 @@
+name: Multi-Platform Testing Workflow
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  ubuntu-job:
+    name: Ubuntu Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Print OS information
+        run: |
+          echo "Operating System: Ubuntu Linux"
+          uname -a
+      
+      - name: Run OS-specific command
+        run: |
+          echo "Running Linux-specific command"
+          df -h
+      
+      - name: Create and display file
+        run: |
+          echo "Hello from Ubuntu" > ubuntu-output.txt
+          cat ubuntu-output.txt
+          ls -la ubuntu-output.txt
+
+  windows-job:
+    name: Windows Job
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Print OS information
+        run: |
+          echo "Operating System: Windows"
+          systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+      
+      - name: Run OS-specific command
+        run: |
+          echo "Running Windows-specific command"
+          Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion
+      
+      - name: Create and display file
+        run: |
+          echo "Hello from Windows" > windows-output.txt
+          type windows-output.txt
+          dir windows-output.txt
+
+  macos-job:
+    name: macOS Job
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Print OS information
+        run: |
+          echo "Operating System: macOS"
+          uname -a
+      
+      - name: Run OS-specific command
+        run: |
+          echo "Running macOS-specific command"
+          sw_vers
+      
+      - name: Create and display file
+        run: |
+          echo "Hello from macOS" > macos-output.txt
+          cat macos-output.txt
+          ls -la macos-output.txt
