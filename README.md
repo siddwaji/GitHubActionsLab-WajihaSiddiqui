@@ -49,12 +49,7 @@ This repository demonstrates three different GitHub Actions workflows showcasing
 
 ## Challenges and Solutions
 
-### Challenge 1: YAML Syntax
-**Issue:** Initially struggled with proper YAML indentation for nested jobs and steps.
-
-**Solution:** Used a YAML validator and referenced the examples from class materials. Ensured consistent 2-space indentation throughout.
-
-### Challenge 2: Understanding Variable Scope
+### Challenge 1: Understanding Variable Scope
 **Issue:** Confusion about when to use `env` vs `${{ env.VARIABLE }}` syntax.
 
 **Solution:** Through testing, learned that:
@@ -62,7 +57,7 @@ This repository demonstrates three different GitHub Actions workflows showcasing
 - Shell environment variables can be accessed directly with `$VARIABLE`
 - Different scopes (workflow/job/step) override each other appropriately
 
-### Challenge 3: Multi-Platform Commands
+### Challenge 2: Multi-Platform Commands
 **Issue:** Commands that work on Linux don't work on Windows and vice versa.
 
 **Solution:** Researched platform-specific alternatives:
@@ -70,7 +65,7 @@ This repository demonstrates three different GitHub Actions workflows showcasing
 - Windows: `type`, `systeminfo`
 - Tested each workflow to ensure cross-platform compatibility
 
-### Challenge 4: Secrets Configuration
+### Challenge 3: Secrets Configuration
 **Issue:** Understanding how secrets are masked in logs.
 
 **Solution:** Realized GitHub automatically masks secret values in workflow logs for security. Even when printing secrets, only asterisks are shown in the output.
